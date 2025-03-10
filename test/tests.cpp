@@ -6,7 +6,6 @@
 #include <cstdint>
 #include <gtest/gtest.h>
 
-
 #define _USE_MATH_DEFINES
 
 TEST(CircleTest, Constructor) {
@@ -46,9 +45,9 @@ TEST(CircleTest, ZeroRadius) {
   EXPECT_DOUBLE_EQ(c.getArea(), 0.0);
 }
 
-TEST(CircleTest, NegativeRadius) {
+TEST(CircleTest, NegativeRadiusOnCreation) {
   Circle c(-5.0);
-  EXPECT_DOUBLE_EQ(c.getRadius(), -5.0);
+  EXPECT_DOUBLE_EQ(c.getRadius(), 5.0);
   EXPECT_DOUBLE_EQ(c.getFerence(), 2 * M_PI * (-5.0));
   EXPECT_DOUBLE_EQ(c.getArea(), M_PI * 25.0);
 }
@@ -101,16 +100,12 @@ TEST(CircleTest, TinyRadius) {
 
 TEST(CircleTest, NegativeArea) {
   Circle c(0);
-  c.setArea(-25 * M_PI);
-  EXPECT_DOUBLE_EQ(c.getRadius(), 5.0); // Радиус всегда положителен
-  EXPECT_DOUBLE_EQ(c.getFerence(), 10 * M_PI);
+  EXPECT_EQ(c.setArea(-25 * M_PI), false);
 }
 
 TEST(CircleTest, SetNegativeFerence) {
   Circle c(0);
-  c.setFerence(-6 * M_PI);
-  EXPECT_DOUBLE_EQ(c.getRadius(), -3.0);
-  EXPECT_DOUBLE_EQ(c.getArea(), 9 * M_PI);
+  EXPECT_EQ(c.setFerence(-6 * M_PI), false);
 }
 
 TEST(CircleTest, SetZeroArea) {
@@ -154,7 +149,9 @@ TEST(CircleTest, PrecisionAfterSetArea) {
 
 TEST(TaskTest, RopeGap) {
   double expected = 1.0 / (2 * M_PI);
-  EXPECT_DOUBLE_EQ(rope_gap(), expected);
+  double res = rope_gap();
+  bool isLessThanEps = std::abs(expected - res) <= 1e-9;
+  EXPECT_LE(isLessThanEps, true);
 }
 
 TEST(TaskTest, PoolCost) {

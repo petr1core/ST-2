@@ -11,9 +11,9 @@ private:
 public:
     Circle(double r);
 
-    void setRadius(double r);
-    void setFerence(double f);
-    void setArea(double a);
+    bool setRadius(double r);
+    bool setFerence(double f);
+    bool setArea(double a);
 
     double getRadius() const;
     double getFerence() const;

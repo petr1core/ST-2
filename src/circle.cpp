@@ -4,7 +4,6 @@
 #include <cmath>
 
 #define _USE_MATH_DEFINES
-#include <cmath>
 
 Circle::Circle(double r) {
     setRadius(r);

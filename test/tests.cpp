@@ -48,7 +48,7 @@ TEST(CircleTest, ZeroRadius) {
 TEST(CircleTest, NegativeRadiusOnCreation) {
   Circle c(-5.0);
   EXPECT_DOUBLE_EQ(c.getRadius(), 5.0);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 2 * M_PI * (-5.0));
+  EXPECT_DOUBLE_EQ(c.getFerence(), 10.0 * M_PI);
   EXPECT_DOUBLE_EQ(c.getArea(), M_PI * 25.0);
 }
 
@@ -98,14 +98,20 @@ TEST(CircleTest, TinyRadius) {
   EXPECT_DOUBLE_EQ(c.getArea(), M_PI * 1e-20);
 }
 
-TEST(CircleTest, NegativeArea) {
+TEST(CircleTest, SetNegativeArea) {
   Circle c(0);
-  EXPECT_EQ(c.setArea(-25 * M_PI), false);
+  c.setArea(-25.0 * M_PI);
+  EXPECT_EQ(c.getArea(), 25.0 * M_PI);
+  EXPECT_EQ(c.getRadius(), 5.0);
+  EXPECT_EQ(c.getFerence(), 10.0 * M_PI);
 }
 
 TEST(CircleTest, SetNegativeFerence) {
   Circle c(0);
-  EXPECT_EQ(c.setFerence(-6 * M_PI), false);
+  c.setFerence(-6.0 * M_PI);
+  EXPECT_EQ(c.getFerence(), 6.0 * M_PI);
+  EXPECT_EQ(c.getArea(), 9.0 * M_PI);
+  EXPECT_EQ(c.getRadius(), 3.0);
 }
 
 TEST(CircleTest, SetZeroArea) {

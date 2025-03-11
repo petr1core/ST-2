@@ -1,7 +1,8 @@
-#ifndef TASKS_H
-#define TASKS_H
+// Copyright 2025 UNN-CS
+#ifndef INCLUDE_TASKS_H_
+#define INCLUDE_TASKS_H_
 
 double rope_gap();
 double pool_cost();
 
-#endif
+#endif  // INCLUDE_TASKS_H_

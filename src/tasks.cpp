@@ -1,6 +1,7 @@
+// Copyright 2025 UNN-CS
+#include <cmath>
 #include "tasks.h"
 #include "circle.h"
-#include <cmath>
 
 
 double rope_gap() {

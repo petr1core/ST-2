@@ -1,9 +1,10 @@
 // Copyright 2025 UNN-CS Team
-#include "circle.h"
-#include "tasks.h"
 #include <cmath>
 #include <cstdint>
 #include <gtest/gtest.h>
+#include "tasks.h"
+#include "circle.h"
+
 
 #define _USE_MATH_DEFINES
 

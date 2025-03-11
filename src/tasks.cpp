@@ -1,7 +1,8 @@
 // Copyright 2025 UNN-CS
+#include <cmath>
 #include "tasks.h"
 #include "circle.h"
-#include <cmath>
+
 
 double rope_gap() {
   Circle earth(6378100.0); // Earth's radius in meters

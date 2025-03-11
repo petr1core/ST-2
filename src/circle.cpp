@@ -6,7 +6,7 @@
 
 #define _USE_MATH_DEFINES
 
-Circle::Circle(double r) { setRadius(r)); }
+Circle::Circle(double r) { setRadius(r); }
 
 void Circle::setRadius(double r) {
   double absR = std::abs(r);

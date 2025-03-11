@@ -8,32 +8,26 @@
 
 Circle::Circle(double r) { setRadius(std::abs(r)); }
 
-bool Circle::setRadius(double r) {
-  if (r < 0) {
-    return false;
-  }
-  radius = r;
-  ference = 2 * M_PI * r;
-  area = M_PI * r * r;
+void Circle::setRadius(double r) {
+  double absR = std::abs(r);
+  radius = absR;
+  ference = 2 * M_PI * absR;
+  area = M_PI * absR * absR;
   return true;
 }
 
-bool Circle::setFerence(double f) {
-  if (f < 0) {
-    return false;
-  }
-  ference = f;
-  radius = f / (2 * M_PI);
+void Circle::setFerence(double f) {
+  double absF = std::abs(f);
+  ference = absF;
+  radius = absF / (2 * M_PI);
   area = M_PI * radius * radius;
   return true;
 }
 
-bool Circle::setArea(double a) {
-  if (a < 0) {
-    return false;
-  }
-  area = a;
-  radius = std::sqrt(a / M_PI);
+void Circle::setArea(double a) {
+  double absA = std::abs(a);
+  area = absA;
+  radius = std::sqrt(absA / M_PI);
   ference = 2 * M_PI * radius;
   return true;
 }

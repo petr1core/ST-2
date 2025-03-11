@@ -13,7 +13,6 @@ void Circle::setRadius(double r) {
   radius = absR;
   ference = 2 * M_PI * absR;
   area = M_PI * absR * absR;
-  return true;
 }
 
 void Circle::setFerence(double f) {
@@ -21,7 +20,6 @@ void Circle::setFerence(double f) {
   ference = absF;
   radius = absF / (2 * M_PI);
   area = M_PI * radius * radius;
-  return true;
 }
 
 void Circle::setArea(double a) {
@@ -29,7 +27,6 @@ void Circle::setArea(double a) {
   area = absA;
   radius = std::sqrt(absA / M_PI);
   ference = 2 * M_PI * radius;
-  return true;
 }
 
 double Circle::getRadius() const { return radius; }
